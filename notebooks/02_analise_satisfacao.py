@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Carregar o dataset merged (gerado no script 01)
+
 merged = pd.read_csv('../data/merged_dataset.csv')
 
 # Análise descritiva da satisfação (review_score)
