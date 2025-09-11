@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Carregar todos os datasets
+
 customers = pd.read_csv('../data/olist_customers_dataset.csv')
 order_items = pd.read_csv('../data/olist_order_items_dataset.csv')
 order_payments = pd.read_csv('../data/olist_order_payments_dataset.csv')
@@ -22,7 +22,7 @@ for col in date_columns_reviews:
 
 order_items['shipping_limit_date'] = pd.to_datetime(order_items['shipping_limit_date'], errors='coerce')
 
-# Merge principal: Orders como base, juntando reviews, items, customers, payments, products e sellers
+# Merge principal
 merged = orders.merge(customers, on='customer_id') \
                .merge(order_reviews, on='order_id', how='left') \
                .merge(order_items, on='order_id', how='left') \
@@ -31,11 +31,11 @@ merged = orders.merge(customers, on='customer_id') \
                .merge(category_translation, on='product_category_name', how='left') \
                .merge(sellers, on='seller_id', how='left')
 
-# Limpeza básica: Remover duplicatas e nulos críticos
+# Limpeza básica
 merged = merged.drop_duplicates()
 merged = merged.dropna(subset=['order_id', 'customer_id', 'review_score'])  # Foco em satisfação, então drop sem review
 
-# Salvar o dataset merged para uso nos outros scripts
+s
 merged.to_csv('../data/merged_dataset.csv', index=False)
 
 print("Dados carregados e merged com sucesso!")
