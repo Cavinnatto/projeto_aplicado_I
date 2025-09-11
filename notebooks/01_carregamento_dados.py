@@ -35,7 +35,7 @@ merged = orders.merge(customers, on='customer_id') \
 merged = merged.drop_duplicates()
 merged = merged.dropna(subset=['order_id', 'customer_id', 'review_score'])  # Foco em satisfação, então drop sem review
 
-s
+
 merged.to_csv('../data/merged_dataset.csv', index=False)
 
 print("Dados carregados e merged com sucesso!")
