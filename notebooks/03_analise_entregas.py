@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Carregar o dataset merged
+
 merged = pd.read_csv('../data/merged_dataset.csv')
 
 # Calcular tempo de entrega e atraso
