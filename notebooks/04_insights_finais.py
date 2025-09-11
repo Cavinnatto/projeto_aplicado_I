@@ -1,6 +1,6 @@
 import pandas as pd
 
-# Carregar o dataset merged
+
 merged = pd.read_csv('../data/merged_dataset.csv')
 
 # Insights principais
